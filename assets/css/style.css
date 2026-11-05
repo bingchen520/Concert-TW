@@ -1,0 +1,44 @@
+:root{--bg:#eef6ff;--dot:#dbebff;--ink:#2f3d57;--mute:#6b7c99;--line:#bcd6f5;--card:#fff;--acc:#2f74d6;--tw:#2a9475;--kr:#7a5ad6;--jp:#e0703a;--free:#2a9475;--paid:#bf7a10;--rsv:#2a86c9}
+@media(prefers-color-scheme:dark){:root{--bg:#1b2540;--dot:#222d4d;--ink:#eaf1ff;--mute:#a9b8d6;--line:#3d4f7a;--card:#26325a;--acc:#8fbcff;--tw:#7fe0c0;--kr:#c3b0ff;--jp:#ffac86;--free:#7fe0c0;--paid:#ffd27a;--rsv:#8fd3ff}}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--bg) radial-gradient(var(--dot) 2px,transparent 2.5px) 0 0/24px 24px;font:16px/1.8 "Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+main{max-width:46rem;margin:0 auto;padding:2rem 1.2rem 4rem}
+h1,h2{line-height:1.4;font-weight:400}
+h1{font-size:1.9rem;margin:.2em 0;color:var(--acc)}
+h2{font-size:1.2rem;margin-top:2.2em}
+h2::before{content:"☁ ";color:var(--acc)}
+a{color:var(--acc)}a:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:8px}
+.sub{color:var(--mute);margin:0}
+.tag{display:inline-block;padding:.05em .85em;border-radius:999px;background:color-mix(in srgb,currentColor 16%,transparent);font-size:.85rem;margin:0 .4rem .2rem 0}
+.tw{color:var(--tw)}.kr{color:var(--kr)}.jp{color:var(--jp)}.free{color:var(--free)}.paid{color:var(--paid)}.rsv{color:var(--rsv)}
+.stub{display:flex;background:var(--card);border:2px solid var(--line);border-radius:22px;margin:1.1rem 0;text-decoration:none;color:inherit;transition:transform .15s}
+.stub:hover{transform:translateY(-3px) rotate(-.4deg)}
+.stub .date{position:relative;flex:0 0 6.4rem;padding:.9rem .5rem;text-align:center;border-right:2px dashed var(--line);color:var(--acc);font-size:1.1rem;line-height:1.35}
+.stub .date::before,.stub .date::after{content:"";position:absolute;right:-11px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--line)}
+.stub .date::before{top:-12px}.stub .date::after{bottom:-12px}
+.stub .date small{display:block;color:var(--mute);font-size:.8rem}
+.stub .body{padding:.8rem 1.1rem}.stub .body strong{font-weight:400;font-size:1.05rem}
+.stub.ended{opacity:.6}
+.table-wrap{overflow-x:auto;border-radius:16px}
+table{border-collapse:separate;border-spacing:0;width:100%;background:var(--card);font-size:.95rem;border:2px solid var(--line);border-radius:16px;overflow:hidden}
+th,td{padding:.5rem .8rem;text-align:left;vertical-align:top;border-bottom:1px dashed var(--line)}
+tr:last-child th,tr:last-child td{border-bottom:0}
+th{width:7rem;background:color-mix(in srgb,var(--acc) 10%,var(--card));font-weight:400;color:var(--acc)}
+.table-wrap table.shows th{width:auto}
+.warn{border:2px dashed var(--paid);background:var(--card);padding:.7rem 1rem;border-radius:16px;font-size:.92rem}
+nav.pager{margin-top:3rem;padding-top:1rem;border-top:2px dotted var(--line)}
+footer{margin-top:3rem;color:var(--mute);font-size:.85rem}
+@media(prefers-reduced-motion:reduce){.stub{transition:none}.stub:hover{transform:none}}
+.cal{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:1rem}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.cal-head b{font-weight:400;color:var(--acc);font-size:1.1rem}
+.cal-head button{font:inherit;font-size:1.2rem;line-height:1;border:2px solid var(--line);background:var(--bg);color:var(--acc);border-radius:999px;width:2.5rem;height:2.5rem;cursor:pointer}
+.cal-head button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.3rem;text-align:center}
+.cal-grid .w{color:var(--mute);font-size:.85rem}
+.cal-list{list-style:none;padding:0;margin:.8rem 0 0;font-size:.95rem}
+.cal-grid .d{display:flex;flex-direction:column;gap:.15rem;min-width:0;min-height:4.8rem;padding:.25rem;border:1px solid var(--line);border-radius:12px;text-align:left}
+.cal-grid .d.today{border:2px dashed var(--acc)}
+.cal-grid .n{color:var(--mute);font-size:.8rem;line-height:1.2}
+.cal-grid .has .n{color:var(--acc)}
+.cal-grid .m{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;word-break:break-all;background:color-mix(in srgb,var(--acc) 18%,transparent);color:var(--acc);border-radius:8px;padding:.05rem .3rem;font-size:.68rem;line-height:1.3;text-decoration:none}
