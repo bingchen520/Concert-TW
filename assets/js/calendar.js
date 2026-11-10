@@ -4,10 +4,12 @@
   if (!root) return;
   function p(n) { return n < 10 ? "0" + n : "" + n; }
   var ev = {};
-  document.querySelectorAll("a.stub[data-dates]").forEach(function (a) {
+  document.querySelectorAll("a.stub[data-dates]").forEach(function (a, i) {
     var t = a.querySelector("strong").textContent, h = a.getAttribute("href");
+    var c = a.getAttribute("data-color") ? +a.getAttribute("data-color") % 8 : i % 8;
+    a.classList.add("c" + c);
     a.getAttribute("data-dates").split(",").forEach(function (d) {
-      d = d.trim(); if (d) (ev[d] = ev[d] || []).push({ t: t, h: h, s: a.getAttribute("data-short") || t });
+      d = d.trim(); if (d) (ev[d] = ev[d] || []).push({ t: t, h: h, s: a.getAttribute("data-short") || t, c: c });
     });
   });
   var keys = Object.keys(ev).sort(), now = new Date();
@@ -26,7 +28,7 @@
       var k = pre + p(d), es = ev[k] || [];
       h += '<div class="d' + (k === today ? " today" : "") + (es.length ? " has" : "") + '"><span class="n">' + d + "</span>";
       es.forEach(function (e) {
-        h += '<a class="m" href="' + e.h + '" title="' + e.t + '">' + e.s + "</a>";
+        h += '<a class="m c' + e.c + '" href="' + e.h + '" title="' + e.t + '">' + e.s + "</a>";
         list.push("<li>" + (m + 1) + "/" + d + ' ｜ <a href="' + e.h + '">' + e.t + "</a></li>");
       });
       h += "</div>";
